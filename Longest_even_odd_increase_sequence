@@ -1,0 +1,53 @@
+package subsequence;
+
+public class LioeS {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		int[] arr = new int[]{ 1, 12, 2, 22,  
+                5, 30, 31, 14, 17, 11 }; 
+		
+		
+		int Lioes[]= new int[arr.length];
+		
+//		for(int i = 0 ; i < arr.length;i++)
+//			Lioes[i] = 1;
+		
+		for(int i = 1; i < arr.length;i++)
+		{
+			for(int j = 0; j < i;j++ )
+			{
+				if(  arr[j] < arr[i]  && (arr[i] + arr[j])%2 != 0  && Lioes[i] < Lioes[j] + 1 )
+				{
+					
+					Lioes[i] = Lioes[j] + 1;
+					
+				}
+				
+				
+			}
+			
+			
+		}
+		
+		
+		int Max_S = 0;
+		
+		
+		for(int i = 0 ; i < Lioes.length;i++ )
+		{
+			
+			if( Max_S < Lioes[i] )
+				Max_S = Lioes[i];
+ 			
+		}
+		
+		System.out.println(Max_S+1);
+//		System.out.println(Max_S+1); print with plus 1 only if initialized counting sequece array with 0 and not 1 if one than print directly
+		
+		
+	}
+
+}
