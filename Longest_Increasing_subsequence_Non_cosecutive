@@ -1,0 +1,49 @@
+package subsequence;
+
+public class Lis {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+//		int arr[] =  new int[]{10,22,9,33,21,50,41,60,80};
+		
+//		int arr[]= new int[] {10,20,30,5,20,30,40,50,60,70,3,1,2,3,4,5,6,7,8,9};
+		
+		int arr[]= new int[] {3, 10, 3, 11, 4, 5, 6, 7, 8, 12};
+		
+		
+		int Lis[] = new int[arr.length];
+		
+		
+		for(int i = 0 ; i < Lis.length;i++)
+			Lis[i]  = 1;
+		
+		
+		
+		
+		for(int i = 1 ; i < arr.length;i++)
+		{
+			
+			for( int j = 0 ; j < i ; j++)
+			{
+				if(  arr[j] < arr[i] && Lis[i] < Lis[j] + 1  )
+						Lis[i] = Lis[j] + 1;
+			}
+			
+		}
+		
+		int Max_S= 0 ; 
+		
+		
+		for(int i = 0 ; i < Lis.length;i++ )
+		{
+			if( Max_S < Lis[i])
+					Max_S = Lis[i];
+			
+		}
+		System.out.println(Max_S);
+		
+	}
+
+}
